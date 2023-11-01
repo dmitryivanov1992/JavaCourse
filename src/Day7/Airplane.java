@@ -50,7 +50,8 @@ public class Airplane {
 
     static void compareAirplanes(Airplane airplane1, Airplane airplane2){
         if (airplane1.length> airplane2.length) System.out.println("Самолет "+airplane1.manufacturer+" длинее, чем "+airplane2.manufacturer);
-        else System.out.println("Самолет "+airplane2.manufacturer+" длинее, чем "+airplane1.manufacturer);
+        else if (airplane1.length < airplane2.length)System.out.println("Самолет "+airplane2.manufacturer+" длинее, чем "+airplane1.manufacturer);
+        else System.out.println("Самолеты "+airplane1.manufacturer+" и "+airplane2.manufacturer+" одинаковой длины!");
     }
 
 }

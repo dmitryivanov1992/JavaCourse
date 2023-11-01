@@ -18,6 +18,7 @@ public class Task2 {
         while (p1.getStamina() > 0) {
             p1.run();
         }
+
         Player.info();
     }
 }

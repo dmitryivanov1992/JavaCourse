@@ -2,9 +2,9 @@ package Day7;
 
 public class Player {
     private int stamina;
-    final int MAX_STAMINA = 100;
-    final int MIN_STAMINA = 0;
-    static int countPlayers = 0;
+    public final int MAX_STAMINA = 100;
+    public final int MIN_STAMINA = 0;
+    private static int countPlayers = 0;
 
     public Player(int stamina) {
         if (stamina < MAX_STAMINA && stamina > MIN_STAMINA) this.stamina = stamina;
@@ -20,10 +20,12 @@ public class Player {
     }
 
     public void run() {
-        if (this.stamina > MIN_STAMINA) this.stamina -= 1;
-        if (this.stamina == 0) {
-            countPlayers -= 1;
-            System.out.println("Игрок устал и покидает поле");
+        if (this.stamina > MIN_STAMINA) {
+            this.stamina -= 1;
+            if (this.stamina == 0) {
+                countPlayers -= 1;
+                System.out.println("Игрок устал и покидает поле");
+            }
         }
 
     }
