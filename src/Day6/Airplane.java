@@ -13,7 +13,6 @@ public class Airplane {
         this.year = yearProd;
         this.length = length;
         this.weight = weight;
-        this.fuel = 0;
     }
 
     public void setManufacturer(String manufacturer) {

@@ -16,8 +16,7 @@ public class Teacher {
             case 2 -> "неудовлетворительно";
             case 3 -> "удовлетворительно";
             case 4 -> "хорошо";
-            case 5 -> "отлично";
-            default -> "";
+            default -> "отлично";
         };
 
         System.out.println("Преподаватель " + this.name + " оценил студента с именем " + student.getName()
