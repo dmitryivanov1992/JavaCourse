@@ -1,6 +1,10 @@
 package Day11.Task1;
 
 public class Picker extends Workman implements Worker {
+
+    private final int bonusValue = 70000;
+    private final int orderPay = 80;
+    private final int bonusOrders = 10000;
     public Picker(int salary, boolean isPayed, Warehouse warehouse) {
         super(salary, isPayed, warehouse);
     }
@@ -12,16 +16,16 @@ public class Picker extends Workman implements Worker {
 
     @Override
     public void doWork() {
-        this.salary += 80;
+        this.salary += orderPay;
         this.warehouse.countPickedOrders++;
     }
 
     @Override
     public void bonus() {
-        if (!this.isPayed && this.warehouse.countPickedOrders >= 10000) {
-            salary += 70000;
+        if (!this.isPayed && this.warehouse.countPickedOrders >= bonusOrders) {
+            salary += bonusValue;
             this.isPayed = true;
-        } else if (this.warehouse.countPickedOrders < 10000) {
+        } else if (this.warehouse.countPickedOrders < bonusOrders) {
             System.out.println("Бонус пока не доступен");
         } else if (isPayed) {
             System.out.println("Бонус уже был выплачен");

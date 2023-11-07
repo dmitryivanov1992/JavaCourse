@@ -15,6 +15,8 @@ public class Task2 {
 
         System.out.println(calculateRedPerimeter(figures));
         System.out.println(calculateRedArea(figures));
+        System.out.println(figures[7].perimeter());
+        System.out.println(figures[7].area());
     }
 
     public static double calculateRedPerimeter(Figure[] figures) {
