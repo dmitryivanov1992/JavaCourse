@@ -19,22 +19,18 @@ public class Task3 {
 
         try {
             scanner = new Scanner(file);
+            while (scanner.hasNext()) {
+                String[] personString = scanner.nextLine().split(" ");
+                if (personString.length != 2 || Integer.parseInt(personString[personString.length - 1]) < 0) {
+                    throw new IOException("Некорректный входной файл");
+                }
+                Person person = new Person(personString[0], Integer.parseInt(personString[1]));
+                personList.add(person);
+            }
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
-        }
-
-        while (scanner.hasNext()) {
-            String[] personString = scanner.nextLine().split(" ");
-            if (personString.length != 2 || Integer.parseInt(personString[personString.length - 1]) < 0) {
-                try {
-                    throw new IOException("Некорректный входной файл");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            Person person = new Person(personString[0], Integer.parseInt(personString[1]));
-            personList.add(person);
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return personList;
     }

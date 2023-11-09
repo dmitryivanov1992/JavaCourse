@@ -18,22 +18,17 @@ public class Task2 {
         Scanner scanner;
         try {
             scanner = new Scanner(file);
+            while (scanner.hasNext()) {
+                String s = scanner.nextLine();
+                if (Integer.parseInt(s.split(" ")[1]) < 0) throw new IOException();
+                result.add(s);
+            }
+            return result;
         } catch (FileNotFoundException e) {
             throw new RuntimeException("Файл не найден!");
+        } catch (IOException e) {
+            System.out.println("Некорректный входной файл");
+            return null;
         }
-
-        while (scanner.hasNext()) {
-            String s = scanner.nextLine();
-            if (Integer.parseInt(s.split(" ")[1]) < 0) {
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    System.out.println("Некорректный входной файл");
-                    return null;
-                }
-            }
-            result.add(s);
-        }
-        return result;
     }
 }
