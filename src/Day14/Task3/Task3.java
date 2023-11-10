@@ -27,10 +27,9 @@ public class Task3 {
                 Person person = new Person(personString[0], Integer.parseInt(personString[1]));
                 personList.add(person);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return null;
         }
         return personList;
     }

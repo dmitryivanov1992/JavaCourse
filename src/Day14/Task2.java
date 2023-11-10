@@ -20,14 +20,12 @@ public class Task2 {
             scanner = new Scanner(file);
             while (scanner.hasNext()) {
                 String s = scanner.nextLine();
-                if (Integer.parseInt(s.split(" ")[1]) < 0) throw new IOException();
+                if (Integer.parseInt(s.split(" ")[1]) < 0) throw new IOException("Некорректный входной файл");
                 result.add(s);
             }
             return result;
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("Файл не найден!");
         } catch (IOException e) {
-            System.out.println("Некорректный входной файл");
+            System.out.println(e.getMessage());
             return null;
         }
     }
