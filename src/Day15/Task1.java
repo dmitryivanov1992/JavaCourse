@@ -1,7 +1,6 @@
 package Day15;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -9,7 +8,7 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        File fileRead = new File("src/main/resources/shoes.csv");
+        File fileRead = new File("src/main/resources/shoes12.csv");
 
         try {
             Scanner scanner = new Scanner(fileRead);
@@ -24,12 +23,10 @@ public class Task1 {
                     writer.println(line[0] + ", " + line[1] + ", " + line[2]);
                 }
             }
-
             scanner.close();
             writer.close();
-
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
     }
