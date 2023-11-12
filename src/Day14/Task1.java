@@ -2,7 +2,6 @@ package Day14;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.prefs.InvalidPreferencesFormatException;
 
@@ -27,7 +26,7 @@ public class Task1 {
         } catch (FileNotFoundException e) {
             throw new RuntimeException("Файл не найден!");
         } catch (InvalidPreferencesFormatException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
