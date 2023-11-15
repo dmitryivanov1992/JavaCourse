@@ -32,20 +32,27 @@ public class Task2 {
         int x2 = scanner.nextInt();
         System.out.println("Введите y2: ");
         int y2 = scanner.nextInt();
-        if (x1 >= x2 || y1 >= y2) {
-            System.out.println("x2 должна быть больше x1, а y2 больше y1");
-            return;
+        try {
+            if (x1>=x2 || y1 >= y2) {
+                throw new IndexOutOfBoundsException("x2 должна быть больше x1, а y2 больше y1");
+            } else if (x1 < 0  || x1 > 99 || x2 > 99 || y1 < 0 || y1 > 99 || y2 > 99) {
+                throw new IndexOutOfBoundsException("Координаты не могут быть отрицательными");
+            } else if (x2 - x1 != y2 - y1) {
+                throw new IndexOutOfBoundsException("Координаты должны образовывать квадрат");
+            }
+            int taxiSquareCounter = 0;
+            for (Map.Entry<Integer, Point> entry : taxiHash.entrySet()) {
+                int x = entry.getValue().getX();
+                int y = entry.getValue().getY();
+                if ((x > x1 && x < x2) && (y > y1 && y < y2)) {
+                    taxiSquareCounter++;
+                    System.out.println("Машина " + entry.getKey() + " в квадрате");
+                }
+            }
+            System.out.println("Всего машин в квадрате: " + taxiSquareCounter);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
 
-        int taxiSquareCounter = 0;
-        for (Map.Entry<Integer, Point> entry : taxiHash.entrySet()) {
-            int x = entry.getValue().getX();
-            int y = entry.getValue().getY();
-            if ((x > x1 && x < x2) && (y > y1 && y < y2)) {
-                taxiSquareCounter++;
-                System.out.println("Машина " + entry.getKey() + " в квадрате");
-            }
-        }
-        System.out.println("Всего машин в квадрате: " + taxiSquareCounter);
     }
 }
