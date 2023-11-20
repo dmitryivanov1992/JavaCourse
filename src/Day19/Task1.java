@@ -14,9 +14,8 @@ public class Task1 {
             scanner.useDelimiter("[.,:;()?!\"\\s–]+");
             String word;
             while (scanner.hasNext()) {
-                word = scanner.next();
-                if (countWordsHash.containsKey(word)) countWordsHash.put(word, countWordsHash.get(word) + 1);
-                else countWordsHash.put(word, 1);
+                word = scanner.next().toLowerCase();
+                countWordsHash.put(word, countWordsHash.getOrDefault(word,0)+1);
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

@@ -36,25 +36,14 @@ public class Task3 {
                 insertNewNode(nextNode, value);
             }
         }
-
     }
 
     public static void dfs(Node root){
-        if (root.getRightSon() !=null && root.getLeftSon()!=null){
+        if (root!=null){
             dfs(root.getLeftSon());
             System.out.print(root.getValue()+" ");
             dfs(root.getRightSon());
-            return;
-        } else if (root.getRightSon() !=null) {
-            System.out.print(root.getValue()+" ");
-            dfs(root.getRightSon());
-            return;
-        }else if (root.getLeftSon() !=null) {
-            dfs(root.getLeftSon());
-            System.out.print(root.getValue()+" ");
-            return;
         }
-        System.out.print(root.getValue()+" ");
     }
 }
 
